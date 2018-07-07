@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Mersenne Twister in Webassembly</title>
+    <script src="./twist_test.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', kickoff);
+        function kickoff() {
+            setInterval(function () {
+                document.getElementById("theNumber").innerHTML = Module.nextRandom();
+            }, 1000);
+        } 
+    </script>
+    <style type="text/css">
+        body {
+            font-family: "Courier";
+        }
+
+        h1 {
+            font-size: 2em;
+            display: inline;
+            flex: none;
+        }
+
+        h2 {
+            font-size: 1.6em;
+        }
+
+        div#card {
+            position: relative;
+            width: 340px;
+            height: 140px;
+            padding: 16px;
+            margin: 30px auto;
+            border: 1px solid black;
+            background: #C0FFEE22;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+
+        div#theNumber {
+            margin-top: 28px;
+            height: 20px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="card">
+        <h1>Mersenne Twister</h1>
+        <div id="theNumber">&nbsp;</div>
+        <footer><a href="http://kripken.github.io/emscripten-site/index.html">emscripten</a> + <a href="https://webassembly.org/">webassembly</a></footer>
+        </div>
+</body>
+
+</html>
